@@ -38,27 +38,6 @@ export const getPosts = async () => {
   return result.postsConnection.edges
 }
 
-export const getRecentPosts = async () => {
-  const query = gql`
-  query GetPostDetails(){
-    posts(
-      orderBy: createAt_ASC
-      last: 3
-      ){
-        title
-        featuredImage{
-          url
-        }
-        createdAt
-        slug
-      }
-  }
-  `
-
-  const result = await request(graphqlAPI, query)
-
-  return result.posts
-}
 
 export const getSimilarPosts = async (categories, slug) => {
   const query = gql`

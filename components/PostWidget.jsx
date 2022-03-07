@@ -1,25 +1,26 @@
 import React, { useState, useEffect } from 'react'
-import moment from  'moment'
+import moment from 'moment'
 import Link from 'next/link'
 
-import { getRecentPost } from '../services'
+import { getRecentPosts, getSimilarPosts } from '../services'
 
 const PostWidget = ({ categories, slug }) => {
   const [relatedPosts, setRelatedPosts] = useState([])
 
 
   useEffect(() => {
-    if(slug){
-      getSimilarPosts(category, slug)
-      .then((result) => setRelatedPosts(result))
-    } else{
-      getRecentPost()
-      .then((result) => getRecentPost(result))
+    if (slug) {
+      getSimilarPosts(categories, slug)
+        .then((result) => setRelatedPosts(result))
+    } else {
+      getRecentPosts()
+        .then((result) => getRecentPosts(result))
     }
-  }, [])
-  
+  }, [slug])
+  console.log(relatedPosts)
+
   return (
-    <div>PostWidget</div>
+    <div className='bg-white shadow-lg rounded-lg p-8 mb-8'>PostWidget</div>
   )
 }
 
