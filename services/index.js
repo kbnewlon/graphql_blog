@@ -178,11 +178,26 @@ export const getComments = async (slug) => {
         comment
       }
     }
-  `;
+  `
 
   const result = await request(graphqlAPI, query, { slug });
 
   return result.comments;
+}
+
+export const getCategories = async () => {
+  const query = gql`
+    query GetCategories {
+        categories {
+          name
+          slug
+        }
+    }
+  `
+
+  const result = await request(graphqlAPI, query);
+
+  return result.categories
 };
 
 export const getRecentPosts = async () => {
@@ -203,5 +218,5 @@ export const getRecentPosts = async () => {
   `;
   const result = await request(graphqlAPI, query);
 
-  return result.posts;
+  return result.posts
 };
