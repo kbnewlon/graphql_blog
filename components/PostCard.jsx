@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const PostCard = ({ post }) => {
-  console.log(post)
+  // console.log(post)
   return (
     <div className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8" key={post.title}>
       <div className='relative overflow-hidden shadow-md pb-80 mb-6'>
@@ -20,8 +20,8 @@ const PostCard = ({ post }) => {
         </Link>
       </h1>
 
-      <div className='block lg:flex text-center items-center justify-center mb-8 w-full'>
-        <div className="flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-8 items-center">
+      <div className="block lg:flex text-center items-center justify-center mb-8 w-full">
+      <div className="flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-8 items-center">
           <Image
             unoptimized
             // loader={grpahCMSImageLoader}
