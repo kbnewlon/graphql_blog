@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import moment from 'moment';
-import Link from 'next/link';
+import Image from 'next/image'
+import moment from 'moment'
+import Link from 'next/link'
 
-// import { grpahCMSImageLoader } from '../util';
-import { getSimilarPosts, getRecentPosts } from '../services';
+import { graphCMSImageLoader } from '../util'
+import { getSimilarPosts, getRecentPosts } from '../services'
 
 const PostWidget = ({ categories, slug }) => {
   const [relatedPosts, setRelatedPosts] = useState([]);
@@ -28,7 +28,7 @@ const PostWidget = ({ categories, slug }) => {
         <div key={index} className="flex items-center w-full mb-4">
           <div className="w-16 flex-none">
             <Image
-              // loader={grpahCMSImageLoader}
+              loader={graphCMSImageLoader}
               alt={post.title}
               height="60px"
               width="60px"

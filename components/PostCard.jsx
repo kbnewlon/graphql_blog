@@ -2,6 +2,7 @@ import React from 'react'
 import moment from 'moment'
 import Image from 'next/image'
 import Link from 'next/link'
+import { graphCMSImageLoader } from '../util'
 
 const PostCard = ({ post }) => {
   // console.log(post)
@@ -24,7 +25,7 @@ const PostCard = ({ post }) => {
       <div className="flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-8 items-center">
           <Image
             unoptimized
-            // loader={grpahCMSImageLoader}
+            loader={graphCMSImageLoader}
             alt={post.authors[0].name}
             height="30px"
             width="30px"
