@@ -139,7 +139,7 @@ export const getCategoryPost = async (slug) => {
         edges {
           cursor
           node {
-            author {
+            authors {
               bio
               name
               id
@@ -173,7 +173,7 @@ export const getFeaturedPosts = async () => {
   const query = gql`
     query GetCategoryPost() {
       posts(where: {featuredPost: true}) {
-        author {
+        authors {
           name
           photo {
             url
@@ -187,11 +187,11 @@ export const getFeaturedPosts = async () => {
         createdAt
       }
     }   
-  `;
+  `
 
-  const result = await request(graphqlAPI, query);
+  const result = await request(graphqlAPI, query)
 
-  return result.posts;
+  return result.posts
 }
 
 export const submitComment = async (obj) => {
@@ -219,7 +219,7 @@ export const getComments = async (slug) => {
 
   const result = await request(graphqlAPI, query, { slug });
 
-  return result.comments;
+  return result.comments
 }
 
 export const getCategories = async () => {
@@ -252,8 +252,8 @@ export const getRecentPosts = async () => {
         slug
       }
     }
-  `;
-  const result = await request(graphqlAPI, query);
+  `
+  const result = await request(graphqlAPI, query)
 
   return result.posts
-};
+}

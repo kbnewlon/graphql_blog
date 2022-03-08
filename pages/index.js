@@ -1,12 +1,9 @@
 import Head from 'next/head'
 import { PostCard, Categories, PostWidget } from '../components/'
 import { getPosts } from '../services'
+import { FeaturedPosts } from '../sections'
 
-// const posts = [
-//   { title: 'React Testing', excerpt: 'Learn React Testing' },
-//   { title: 'React with Tailwind', excerpt: 'Learn React with Tailwind' },
 
-// ]
 export default function Home({ posts }) {
   return (
     <div className='container mx-auto px-10 mb-8'>
@@ -14,7 +11,7 @@ export default function Home({ posts }) {
         <title>GraphCMS Blog</title>
         <link rel='icon' href='/favicon' />
       </Head>
-
+      <FeaturedPosts />
       <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
         <div className='lg:col-span-8 col-span-1'>
           {posts.map((post, index) => <PostCard post={post.node} key={post.node.title} />)}
@@ -33,7 +30,7 @@ export default function Home({ posts }) {
 }
 
 //fetch posts
-export async function getStaticProps(){
+export async function getStaticProps() {
   const posts = (await getPosts()) || []
 
   return {
