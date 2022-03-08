@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
+import { submitComment } from '../services'
 
 
 
@@ -33,6 +34,15 @@ const CommentsForm = ({ slug }) => {
       localStorage.removeItem('email', email)
 
     }
+    submitComment(commentObj)
+    .then((res) =>{
+      setShowSuccessMessage(true)
+      
+      setTimeout(() => {
+        setShowSuccessMessage(false)
+        //shows success message for 3 seconds
+      }, 3000)
+    })
   }
 
   return (
