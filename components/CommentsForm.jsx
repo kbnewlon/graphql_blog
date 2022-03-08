@@ -11,9 +11,11 @@ const CommentsForm = ({ slug }) => {
   const emailEl = useRef()
   const storeDataEl = useRef()
 
-const handleCommentSubmission = () => {
-  
-}
+  const handleCommentSubmission = () => {
+setError(false)
+const { comment } = 
+if(!commentEl.current.value || !nameEl.current.value || !emailEl.current.value)
+  }
 
   return (
     <div className='bg-white shadow-lg rounded-lg p-8 pb-12 mb-8'>
@@ -44,11 +46,15 @@ const handleCommentSubmission = () => {
           name="email"
         />
       </div>
-      {error && <p className='text-xs text-red-500'>ALL fields are required</p>}
+      {error && <p className='text-xs text-red-500'>All fields are required</p>}
       <div className='mt-8'>
-        <button type="button" onClick={handleCommentSubmission}>
-
+        <button
+          type="button"
+          onClick={handleCommentSubmission}
+          className='transition duration-500 ease hover:bg-indigo-900 inline-block bg-pink-600 text-lg rounded-full text-white px-8 py-3 cursor-pointer'>
+            Post Comment
         </button>
+        {showSuccessMessage && <span className='text-xl float-right font-semibold mt-3 text-green-500'>Comment Submitted for review</span>}
       </div>
 
     </div>
